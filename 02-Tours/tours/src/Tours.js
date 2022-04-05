@@ -1,8 +1,9 @@
-import { Info } from "@mui/icons-material";
+import { Info, SettingsBackupRestoreSharp } from "@mui/icons-material";
 import React, { useState } from "react";
 import Tour from "./Tour";
-const Tours = ({ tours }) => {
+const Tours = ({ tours, removeTour }) => {
   const [readMore, setReadMore] = useState(false);
+
   return (
     <>
       <section>
@@ -14,7 +15,7 @@ const Tours = ({ tours }) => {
           {tours.map((tour) => {
             console.log(tour);
             console.log(tour.name);
-            // <Tour key={tour.id} {...tour}></Tour>;
+            //<Tour key={tour.id} {...tour}></Tour>;
             return (
               <>
                 <article className="single-tour">
@@ -40,7 +41,12 @@ const Tours = ({ tours }) => {
                         {readMore ? "Show Less" : "Read More"}
                       </button>
                     </p>
-                    <button className="delete-btn">Remove</button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => removeTour(tour.id)}
+                    >
+                      Remove
+                    </button>
                   </footer>
                 </article>
                 ;
